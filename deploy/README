@@ -39,6 +39,12 @@ makejar
     that is used when it is run. The manifest classpath contains the
     native library jar files that are needed for all platforms.
 
+    cockpit can be run from this jar in the deploy directory:
+        java -java deploy/cockpit_linux64.jar
+    The manifest in the jar, manifest_linux64.txt, contains a "Class-Path"
+    directive to qtjambi jar files, whose path is relative to the deploy
+    directory.
+
 makezip [ -i [ installpath ] ]
     Create .zip files for Linux (32 and 64 bit), Mac and Windows,
     containing cockpit.jar and other jars needed to run cockpit

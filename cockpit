@@ -1,5 +1,6 @@
-#!/bin/sh -x
+#!/bin/sh
 
-nohup java -jar $ISFS/src/java/edu/ucar/nidas/apps/cockpit/deploy/cockpit.jar -s localhost:30005 > /dev/null 2>&1 &
+nohup java -jar /home/daq/src/cockpit/deploy/cockpit_linux64.jar -s localhost:30005 > /dev/null 2>&1 &
+# java -jar /home/daq/src/cockpit/deploy/cockpit_linux64.jar -s localhost:30005
 
 # -debug true

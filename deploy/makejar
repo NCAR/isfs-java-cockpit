@@ -2,11 +2,9 @@
 
 d=$(dirname $0)
 d=${d/./$PWD}
+echo "d=$d"
 
-cd $d/../../..
-
-# echo "d=$d"
-# pwd
+cd $d/../java/edu/ucar/nidas
 
 # set the CLASSPATH to the appropriate jar
 declare -A classpath

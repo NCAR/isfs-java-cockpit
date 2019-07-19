@@ -1,6 +1,11 @@
 
 == Deploying Cockpit with Webstart ==
 
+Note that using webstart has not be done for many years - and this
+is likely obsolete.  To run it locally, build the jar file with
+makejar, and run it from the deploy directory:
+    java -jar deploy/cockpit_linux64.jar
+
 The development tree for cockpit is setup to facilitate deploying and
 running cockpit with webstart.  There is a JNLP file in the top directory,
 and the paths it specifies are all relative to top of the source tree,
