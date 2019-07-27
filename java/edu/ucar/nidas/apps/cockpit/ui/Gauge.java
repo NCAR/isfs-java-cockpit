@@ -581,7 +581,7 @@ public class Gauge extends QWidget
             action.triggered.connect(this, "forceAutoScalePlot()");
             scale.addAction(action);
 
-            menu.addAction(tr("Set Data &Timeout"), this, "setDataTimeout()");
+            menu.addAction(tr("Set Data &Timeout"), this, "setDataTimeoutSec()");
             // menu.addAction(tr("&Auto Resize"), this, "autoResize()");
             menu.addAction(tr("&Delete Plot"), this, "deletePlot()");
             _mousePoint = event.globalPos();

@@ -164,7 +164,6 @@ public class UdpDataReaderThread extends Thread
         while(!isInterrupted()) {
             // Read a DatagramPacket.
             try {
-                _dsocket.setSoTimeout(10000);
                 _dsocket.receive(_packet);
             }
             catch (IOException e) {

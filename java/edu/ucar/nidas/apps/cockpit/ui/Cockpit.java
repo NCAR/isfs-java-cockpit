@@ -38,6 +38,7 @@ import java.io.FileNotFoundException;
 import com.trolltech.qt.core.QObject;
 import com.trolltech.qt.core.QRect;
 import com.trolltech.qt.core.QPoint;
+import com.trolltech.qt.core.QSize;
 import com.trolltech.qt.core.Qt;
 import com.trolltech.qt.core.QDir;
 import com.trolltech.qt.core.QTranslator;
@@ -60,6 +61,7 @@ import com.trolltech.qt.gui.QStatusBar;
 import com.trolltech.qt.gui.QFileDialog;
 import com.trolltech.qt.gui.QMessageBox;
 import com.trolltech.qt.gui.QMessageBox.StandardButton;
+
 
 import edu.ucar.nidas.apps.cockpit.model.CockpitConfig;
 import edu.ucar.nidas.apps.cockpit.model.MinMaxer;
@@ -103,9 +105,6 @@ public class Cockpit extends QMainWindow {
 
     // private static QDesktopWidget _desktop;
 
-    public static QRect defaultGeometry =
-        new QRect(200, 200, 1000, 700);
-    
     /**
      * global defaults
      */
@@ -240,12 +239,14 @@ public class Cockpit extends QMainWindow {
         _logDialog = new LogDialog(this);
         _log = new LogDisplay(_logDialog.getTextWidget());
 
-        setGeometry(defaultGeometry);
-
         _centWidget = new CentTabWidget(this);
         setCentralWidget(_centWidget); 
         createUIs();
         openImage();
+
+        QRect screenSize = QApplication.desktop().availableGeometry(this);
+        resize(new QSize((int)Math.floor(screenSize.width() * 0.7f),
+                    (int)Math.floor(screenSize.height() * 0.7f)));
 
 	_udpConnection = new UdpConnection(_unicastPort);
 
@@ -700,8 +701,6 @@ public class Cockpit extends QMainWindow {
 
     private void apply(CockpitConfig cc)
     {
-        resize(cc.getSize());
-        move(cc.getPos());
         _centWidget.apply(cc);
     }
 

@@ -141,7 +141,8 @@ public class UdpConnection {
                 }
             }
         }
-        _udpSocket.setSoTimeout(0);
+        // set a big timeout (milliseconds) on receipt of data.
+        _udpSocket.setSoTimeout(300000);
         return connections;
     }
 
