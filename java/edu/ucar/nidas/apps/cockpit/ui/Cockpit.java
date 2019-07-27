@@ -105,6 +105,9 @@ public class Cockpit extends QMainWindow {
 
     // private static QDesktopWidget _desktop;
 
+    public static QRect defaultGeometry =
+        new QRect(200, 200, 1000, 700);
+
     /**
      * global defaults
      */
